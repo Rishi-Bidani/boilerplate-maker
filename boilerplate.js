@@ -46,12 +46,23 @@ const file = args["-f"];
 const boilerplateType = args["-t"];
 const outputDir = args["-o"];
 
+// Check if argument is supplied
+if (!file) {
+    throw new Error("Please provide a file");
+} else if (!boilerplateType) {
+    throw new Error("Please provide a boilerplate type");
+} else if (!outputDir) {
+    throw new Error("Please provide an output directory");
+}
+
 const readFile = fs.readFileSync(file, "utf-8").toString().split(/[\r\n]+/);
 
 if (boilerplateType === readFile[0].split("# ")[1]) {
 
     createFilesAndWrite(outputDir, readFile);
 
+} else {
+    console.log("Wrong boilerplate type");
 }
 
 async function createFilesAndWrite(outputPath, readFile) {
