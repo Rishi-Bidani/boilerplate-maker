@@ -1,0 +1,42 @@
+# express
+
+# ./server/router/posts.js
+# ./server/router/deletes.js
+# ./server/router/gets.js
+
+# ./server/main.js
+const express = require('express');
+const app = express();
+const http = require("http").Server(app);
+const path = require("path");
+
+// MiddleWare
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
+
+const posts = require("./router/posts");
+app.use("/posts", posts);
+
+app.get("/", (req, res) => {
+    res.send("Hello World");
+});
+
+const port = process.env.PORT || 5000;
+http.listen(port, () => {
+    console.log("Website live on: " + `http://localhost:${port}`);
+});
+
+
+# ./client/templates/index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
