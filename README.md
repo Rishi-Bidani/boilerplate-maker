@@ -16,14 +16,17 @@ const path = require("path")
 # path/to/another/file3.ext
 ```
 
-For a real example mkbp file please check express.mkbp.
+<br />
 
+For a real example mkbp file please check express.mkbp.
 
 If you are using the node version of the boilerplater-maker please execute the code with the following parameters
 
 ```node
 node boilerplate.js -o ./express-app/ -t express -f express.mkbp
 ```
+
+<br />
 
 The executable package should be available soon!
 
